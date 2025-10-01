@@ -1,0 +1,36 @@
+# RGB Model Requirements
+# Python 3.8+
+
+# Core ML and Data Science
+numpy>=1.21.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Computer Vision
+opencv-python>=4.5.0
+Pillow>=8.0.0
+
+# Image Augmentation
+albumentations>=1.3.0
+
+# Deep Learning (optional, for future MobileNet integration)
+# tensorflow>=2.10.0
+# torch>=1.12.0
+# torchvision>=0.13.0
+
+# Dataset Management
+kagglehub>=0.2.0
+
+# Model Persistence
+joblib>=1.1.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Progress Bars
+tqdm>=4.62.0
+
+# Utilities
+pathlib2>=2.3.0  # For Python 3.8 compatibility
