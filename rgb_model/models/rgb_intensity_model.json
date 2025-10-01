@@ -1,9 +1,13 @@
 {
   "thresholds": {
-    "red_intensity": 0.3476899564266205,
-    "paleness_score": 0.899144172668457,
-    "redness_ratio": 1.3221814632415771,
-    "brightness": null
+    "red_intensity": 52.84776088169643,
+    "paleness_score": 0.8849833141778822,
+    "redness_ratio": 1.3349917997478122,
+    "brightness": null,
+    "lab_a": 135.1080695950255,
+    "saturation": 24.986771564094386,
+    "red_dominance": 11.475187340561227,
+    "anemia_color_index": 0.8274749861296475
   },
   "image_size": [
     224,
