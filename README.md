@@ -108,7 +108,7 @@ Depending on device capability and OS (Android, iOS, Desktop, Embedded):
 │ ├── 📂 inference/ # Model serving scripts
 │ └── README.md
 │
-├── 📂 rgb_model/ # Lightweight ML model (for low-power devices)
+├── 📂 ml_model/ # Lightweight ML model (for low-power devices)
 │ ├── 📂 data/ # Preprocessed RGB images
 │ ├── 📂 features/ # Histogram, paleness index, etc.
 │ ├── 📂 models/ # Random Forest / Logistic Regression
@@ -140,11 +140,11 @@ Depending on device capability and OS (Android, iOS, Desktop, Embedded):
 ### 📌 Notes:
 
 - **cnn_segmentation_pipeline/** → heavy CNN models, best for cloud or high-performance systems.
-- **rgb_model/** → lightweight ML model, optimized for mobile/embedded devices.
+- **ml_model/** → lightweight ML model, optimized for mobile/embedded devices.
 - **flutter_app/** → mobile frontend (Android/iOS) to interact with either model depending on OS & resources.
 
 ---
 
-👉 Do you want me to also **add a deployment folder (docker, cloud, API)** so that both CNN and RGB models can be served through one API for the Flutter app?
+👉 Do you want me to also **add a deployment folder (docker, cloud, API)** so that both CNN and ML models can be served through one API for the Flutter app?
 
 If you confirm, I will create a `deployment/` folder with Docker, API, and cloud deployment examples. I will also create `README.md` files in the main subfolders now.
