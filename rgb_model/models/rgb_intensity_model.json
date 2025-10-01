@@ -1,0 +1,12 @@
+{
+  "thresholds": {
+    "red_intensity": 0.3476899564266205,
+    "paleness_score": 0.899144172668457,
+    "redness_ratio": 1.3221814632415771,
+    "brightness": null
+  },
+  "image_size": [
+    224,
+    224
+  ]
+}
