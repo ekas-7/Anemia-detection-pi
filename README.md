@@ -1,78 +1,72 @@
 # Personalized Anemia Detection Framework
 
 ## 1. Personalization Factors
-The model will incorporate personalization layers to improve prediction accuracy:
-- **Based on OS (Occupation/Socioeconomic)**  
-  Risk factors vary depending on lifestyle, healthcare access, and occupational exposure.  
-- **Based on Family History**  
-  Genetic predispositions such as inherited hemoglobinopathies.  
-- **KIME (Key Individual Medical Evidence)**  
-  Incorporating prior medical records, hemoglobin levels, and clinical history.  
-- **Dietary Patterns (Veg/Non-Veg)**  
-  Nutritional deficiencies differ depending on dietary intake.  
-- **Sickle Cell Predisposition**  
-  Identifying individuals with higher risk of anemia due to sickle cell or thalassemia traits.  
+The system incorporates personalization layers to improve prediction accuracy:
+- **Family History** → Genetic predispositions such as inherited hemoglobinopathies.  
+- **KIME (Key Individual Medical Evidence)** → Prior medical records, hemoglobin levels, and clinical history.  
+- **Dietary Patterns (Veg/Non-Veg)** → Nutritional deficiencies differ depending on dietary intake.  
+- **Sickle Cell Predisposition** → Identifying individuals with higher risk of anemia due to sickle cell or thalassemia traits.  
 
 ---
 
-## 2. Model Approaches
+## 2. Model Selection Based on Operating System (OS)
 
-### Model 1: RGB-Based Imaging Model  
-- Input: Conjunctiva (eye images), palm, tongue photographs (RGB format).  
-- Architecture: **CNN (Convolutional Neural Network)** trained on preprocessed images.  
-- Goal: Identify pale conjunctiva, discoloration patterns, and biomarkers of anemia.  
+Depending on device capability and OS (Android, iOS, Desktop, Embedded):
 
-### Model 2: ML Model with Clinical Features  
-- Input: Patient history, family data, lab parameters, dietary habits.  
-- Architecture: Classical ML models (Random Forest, XGBoost) or lightweight neural nets.  
-- Goal: Predict likelihood of anemia and type (iron-deficiency, sickle-cell-related, chronic disease).  
+- **RGB ML Model (Lightweight)**  
+  - For low-resource devices (mobile, embedded systems).  
+  - Input: Preprocessed RGB images.  
+  - Algorithm: Lightweight ML model (Random Forest, Logistic Regression, MobileNet-lite).  
+  - Goal: Quick, energy-efficient anemia screening.  
+
+- **CNN Model (Heavyweight)**  
+  - For high-performance devices (desktop, cloud servers).  
+  - Input: Conjunctiva / eye-region images.  
+  - Architecture: Deep CNN (ResNet, EfficientNet, or U-Net for segmentation).  
+  - Goal: Detailed and accurate anemia classification.  
 
 ---
 
 ## 3. Segmentation Pipeline
 
 1. **Preprocessing**  
-   - RGB image normalization  
-   - Contrast enhancement  
-   - Noise reduction  
+   - Normalize RGB images  
+   - Enhance contrast & remove noise  
 
 2. **Segmentation**  
-   - Localize **eye conjunctiva** (primary biomarker region)  
-   - U-Net / Mask R-CNN for precise boundary detection  
+   - Detect **eye conjunctiva** region  
+   - Models: U-Net / Mask R-CNN  
 
 3. **Feature Extraction**  
-   - Color histograms, texture features  
-   - Vessel density analysis  
-   - Redness/paleness indices  
+   - Color histograms, vessel density, paleness index  
+   - Morphological features of conjunctiva  
 
 4. **Classification**  
-   - CNN → classify as *normal / mild / severe anemia*  
-   - Ensemble with ML clinical model for hybrid decision-making  
+   - **If lightweight OS/device** → RGB ML Model  
+   - **If high-performance OS/device** → CNN Model  
 
 ---
 
 ## 4. Datasets
 
-- **Eyes Defy Anemia Dataset**  
-  Images of eyes for anemia screening.  
-- **CP Anemia Dataset**  
-  Clinical parameter dataset for anemia classification.  
-- **Eye Conjunctiva Dataset**  
-  Specific dataset focusing on conjunctival images annotated for anemia severity.  
+- **Eyes Defy Anemia Dataset** → Eye images for anemia screening.  
+- **CP Anemia Dataset** → Clinical & parameter dataset.  
+- **Eye Conjunctiva Dataset** → Annotated conjunctival images with anemia severity levels.  
 
 ---
 
 ## 5. Output & Applications
 
-- **Severity Classification**: Normal, Mild, Moderate, Severe Anemia  
-- **Personalized Risk Profiling**: Combining image + clinical history  
-- **Deployment**: Mobile app for low-resource settings, cloud-based API for hospitals  
+- **Severity Classification**: Normal / Mild / Moderate / Severe Anemia  
+- **Personalized Risk Profiling**: Combines image-based + clinical history features  
+- **Deployment Options**:  
+  - Mobile app (lightweight RGB ML model)  
+  - Cloud API / Hospital system (deep CNN model)  
 
 ---
 
-## 6. Future Directions
+## 6. Future Enhancements
 
-- Expand datasets across diverse ethnicities and age groups.  
-- Integrate multimodal data (eye images + blood tests + EHR).  
-- Explore **transfer learning** from medical vision models (e.g., MedCLIP, ViT).  
-- Deploy in **edge devices** for rural healthcare.  
+- **Hybrid Ensemble**: Combine RGB + CNN predictions.  
+- **Cross-Platform Support**: Optimize for Android, iOS, Linux, Windows.  
+- **Multimodal Input**: Combine image + lab tests + family history for higher accuracy.  
