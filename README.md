@@ -1,7 +1,9 @@
 # Personalized Anemia Detection Framework
 
 ## 1. Personalization Factors
+
 The system incorporates personalization layers to improve prediction accuracy:
+
 - **Family History** → Genetic predispositions such as inherited hemoglobinopathies.
 - **KIME (Key Individual Medical Evidence)** → Prior medical records, hemoglobin levels, and clinical history.
 - **Dietary Patterns (Veg/Non-Veg)** → Nutritional deficiencies differ depending on dietary intake.
@@ -14,30 +16,36 @@ The system incorporates personalization layers to improve prediction accuracy:
 Depending on device capability and OS (Android, iOS, Desktop, Embedded):
 
 - **RGB ML Model (Lightweight)**
+
   - For low-resource devices (mobile, embedded systems).
   - Input: Preprocessed RGB images.
   - Algorithm: Lightweight ML model (Random Forest, Logistic Regression, MobileNet-lite).
   - Goal: Quick, energy-efficient anemia screening.
 
-- **CNN Model (Heavyweight)**
-  - For high-performance devices (desktop, cloud servers).
+- **CNN Model (Adaptive Performance)**
+  - For high-performance devices (desktop, cloud servers, high-end mobile devices).
   - Input: Conjunctiva / eye-region images.
-  - Architecture: Deep CNN (ResNet, EfficientNet, or U-Net for segmentation).
-  - Goal: Detailed and accurate anemia classification.
+  - Architecture:
+    - **MobileNet-based CNN**: For resource-constrained high-performance phones
+    - **Deep CNN**: ResNet, EfficientNet, or U-Net for segmentation (desktop/cloud)
+  - Goal: Detailed and accurate anemia classification with optimized performance.
 
 ---
 
 ## 3. Segmentation Pipeline
 
 1. **Preprocessing**
+
    - Normalize RGB images
    - Enhance contrast & remove noise
 
 2. **Segmentation**
+
    - Detect **eye conjunctiva** region
    - Models: U-Net / Mask R-CNN
 
 3. **Feature Extraction**
+
    - Color histograms, vessel density, paleness index
    - Morphological features of conjunctiva
 
@@ -58,9 +66,18 @@ Depending on device capability and OS (Android, iOS, Desktop, Embedded):
 ## 5. Output & Applications
 
 - **Severity Classification**: Normal / Mild / Moderate / Severe Anemia
+- **Performance Metrics**:
+  - **Accuracy**: Overall prediction accuracy percentage
+  - **Confidence Score**: Model confidence level for each prediction
+  - **F1-Score**: Harmonic mean of precision and recall
+  - **Specificity**: True negative rate
+  - **Sensitivity/Recall**: True positive rate
+  - **Precision**: Positive predictive value
+  - **Execution Time**: Time to run inference on target OS/device
+  - **AUC-ROC**: Area under the receiver operating characteristic curve
 - **Personalized Risk Profiling**: Combines image-based + clinical history features
 - **Deployment Options**:
-  - Mobile app (lightweight RGB ML model)
+  - Mobile app (lightweight RGB ML model / MobileNet-based CNN)
   - Cloud API / Hospital system (deep CNN model)
 
 ---
@@ -121,6 +138,7 @@ Depending on device capability and OS (Android, iOS, Desktop, Embedded):
 ---
 
 ### 📌 Notes:
+
 - **cnn_segmentation_pipeline/** → heavy CNN models, best for cloud or high-performance systems.
 - **rgb_model/** → lightweight ML model, optimized for mobile/embedded devices.
 - **flutter_app/** → mobile frontend (Android/iOS) to interact with either model depending on OS & resources.
