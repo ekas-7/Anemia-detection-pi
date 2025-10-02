@@ -36,12 +36,12 @@ class _PersonalizationFormState extends State<PersonalizationForm> {
               ),
               SizedBox(height: 12),
               DropdownButtonFormField<String>(
-                value: _data['diet'],
+                initialValue: _data['diet'] as String,
                 decoration: InputDecoration(labelText: 'Dietary Pattern'),
                 items: ['Vegetarian', 'Non-Vegetarian']
                     .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                     .toList(),
-                onChanged: (v) => setState(() => _data['diet'] = v),
+                onChanged: (v) => setState(() => _data['diet'] = v ?? 'Vegetarian'),
               ),
               SizedBox(height: 12),
               SwitchListTile(

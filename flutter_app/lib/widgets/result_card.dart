@@ -17,7 +17,7 @@ class ResultCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Prediction', style: Theme.of(context).textTheme.subtitle1),
+            Text('Prediction', style: Theme.of(context).textTheme.titleMedium),
             SizedBox(height: 8),
             Text(label, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
