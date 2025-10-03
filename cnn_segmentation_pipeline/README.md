@@ -16,6 +16,7 @@ CNN Conjunctiva Segmentation Pipeline
 This project contains a U-Net based pipeline to segment the conjunctiva from eye images. It is structured to separate data loading, model definition, training, and prediction into distinct modules.
 
 Project Structure
+```
 cnn_segmentation_pipeline/
 │
 ├── src/
@@ -27,6 +28,7 @@ cnn_segmentation_pipeline/
 ├── predict.py                # Script to run inference on a new image
 ├── requirements.txt          # Project dependencies
 └── README.md                 # This file
+```
 
 Setup
 Clone the Repository:
