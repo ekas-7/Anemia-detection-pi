@@ -1,4 +1,4 @@
-# Personalized Anemia Detection Framework
+# Personalized Anemia Detection Framework for custom hardware
 
 ## 1. Personalization Factors
 
